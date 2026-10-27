@@ -13,4 +13,6 @@ Stack: Linux, Docker / Docker Compose, UFW / iptables, Tailscale, BIND9, SSH, au
 
 ## Docs index
 
-_No stages documented yet._
+| Step | Date | Topic |
+|------|------|-------|
+| [01](docs/01-ubuntu-server-install.md) | 2026-10-27 | Ubuntu Server installation on Toshiba NB520 |
