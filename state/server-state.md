@@ -10,7 +10,7 @@ Update after every documented stage. Repo: https://github.com/VolodyaShchyrov/La
 - Hostname: vovaserver
 - Disks / partitions: WDC WD10SPZX 931.5 GB (`sda`, SATA, internal, system disk)
   - sda1 1 MB, sda2 2 GB ext4 `/boot`, sda3 929.5 GB LVM
-  - LVM: `ubuntu-vg/ubuntu-lv` 100 GB ext4 `/` (rest of the volume group not yet allocated)
+  - LVM: `ubuntu-vg/ubuntu-lv` ext4 `/`, extended to all free space in the volume group (was 100 GB)
 
 ## Network
 - LAN IP (static/DHCP): none yet (no connection)
@@ -30,10 +30,10 @@ Update after every documented stage. Repo: https://github.com/VolodyaShchyrov/La
 
 ## Done
 - Stage 1: Ubuntu Server 26.04.1 installed on the internal 1 TB WDC disk (installed from USB flash drive); system boots from the disk and runs fine offline
+- Root LV extended to all free space: `lvextend -r -l +100%FREE /dev/ubuntu-vg/ubuntu-lv`
 
 ## Known issues / open questions
 - Server has no network/internet yet; Ethernet and Wi-Fi interfaces are DOWN
-- Root LV is only 100 GB of 929.5 GB; extend with `lvextend -r -l +100%FREE /dev/ubuntu-vg/ubuntu-lv`
 - UFW is inactive
 - SSH allows password login
 
